@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" fill="none">
+  <!-- Infinity Symbol Mark -->
+  <path d="M52 55C52 44 60 36 70 36C82 36 91 55 91 55C91 55 100 74 112 74C122 74 130 66 130 55C130 44 122 36 112 36C100 36 91 55 91 55C91 55 82 74 70 74C60 74 52 66 52 55Z" stroke="#E24732" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="150" y="54" fill="#111318" font-family="'Sora', sans-serif" font-weight="800" font-size="28" letter-spacing="2">INFINITY</text>
+  <text x="152" y="76" fill="#525866" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="12" letter-spacing="4.5">TECHNOLOGY</text>
+</svg>

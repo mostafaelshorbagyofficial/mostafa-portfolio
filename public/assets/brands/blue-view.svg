@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" fill="none">
+  <!-- Steam S-curve and Cup from BlueView Official Logo -->
+  <path d="M222 24H194C184 24 176 32 176 42C176 52 184 60 194 60H216C222 60 227 65 227 71C227 77 222 82 216 82H164C155 82 148 89 148 98" stroke="#08305B" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cup Rim & Handle -->
+  <path d="M134 102H272C284 102 294 112 294 124C294 136 284 146 272 146H264" stroke="#08305B" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cup Bowl Left & Right Arcs -->
+  <path d="M142 102V114C142 135 153 153 170 163" stroke="#08305B" stroke-width="13" stroke-linecap="round"/>
+  <path d="M254 116V120C254 139 243 156 227 164" stroke="#08305B" stroke-width="13" stroke-linecap="round"/>
+  <!-- Cyan Wave -->
+  <path d="M106 172H124C149 172 167 159 183 141C195 127 210 118 228 122C216 135 215 156 228 167C237 174 250 174 274 174" stroke="#00A3FF" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- BLUEVIEW Wordmark -->
+  <text x="210" y="196" text-anchor="middle" fill="#08305B" font-family="'Sora', 'Montserrat', sans-serif" font-weight="800" font-size="22" letter-spacing="8">BLUEVIEW</text>
+</svg>

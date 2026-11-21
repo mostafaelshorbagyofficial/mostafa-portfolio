@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 140" fill="none">
+  <!-- Official CIC Maple Leaf + Rising Bar Chart Emblem (CIC Entrepreneurs) -->
+  <g transform="translate(148, 8)">
+    <!-- Canadian Maple Leaf Outline in Burgundy Red -->
+    <path d="M42 4L48 18L58 14L53 28L67 25L63 34L76 37L65 48L69 55L52 54L54 67H30L32 54L15 55L19 48L8 37L21 34L17 25L31 28L26 14L36 18L42 4Z" stroke="#9B1B30" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+    <!-- Rising Bar Chart Inside the Maple Leaf -->
+    <rect x="31" y="42" width="4.5" height="14" rx="1" fill="#9B1B30"/>
+    <rect x="39.5" y="34" width="4.5" height="22" rx="1" fill="#9B1B30"/>
+    <rect x="48" y="26" width="4.5" height="30" rx="1" fill="#9B1B30"/>
+    <!-- Stem base -->
+    <line x1="26" y1="62" x2="58" y2="62" stroke="#9B1B30" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- CIC ENTREPRENEURS Wordmark -->
+  <text x="190" y="106" text-anchor="middle" fill="#111318" font-family="'Sora', 'Montserrat', sans-serif" font-weight="800" font-size="25" letter-spacing="2.5">CIC ENTREPRENEURS</text>
+  <text x="190" y="126" text-anchor="middle" fill="#9B1B30" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" letter-spacing="3.5">CANADIAN INTERNATIONAL COLLEGE</text>
+</svg>
