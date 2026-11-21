@@ -56,6 +56,8 @@ export default function SectionBackground({
       isWarm: i % 2 === 0,
     }));
 
+    let isInitialized = false;
+
     const resize = () => {
       const parent = canvas.parentElement;
       if (!parent) return;
@@ -67,7 +69,7 @@ export default function SectionBackground({
       canvas.width = Math.max(1, Math.floor(w * dpr));
       canvas.height = Math.max(1, Math.floor(h * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (staticMode) {
+      if (staticMode && isInitialized) {
         renderFrame();
       }
     };
@@ -336,6 +338,7 @@ export default function SectionBackground({
       }
     };
 
+    isInitialized = true;
     renderFrame();
     if (!staticMode) {
       rafId = window.requestAnimationFrame(tick);
