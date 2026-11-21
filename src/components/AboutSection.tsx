@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Trophy, Building2 } from 'lucide-react';
+import { GraduationCap, Trophy, Building2, FileText, Download, ArrowUpRight } from 'lucide-react';
 import { identity } from '../data/portfolio';
 import InteractiveSkillsSection from './InteractiveSkillsSection';
 import SectionBackground from './SectionBackground';
@@ -168,26 +168,66 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-5 border-t border-[var(--line)]">
-            {[
-              'Media & Entertainment',
-              'Marketing & Business',
-              'Creative & Design',
-              'Video & Photo Production',
-              'Content Creation',
-              'Technology & AI',
-            ].map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  backgroundColor: 'var(--bg-soft)',
-                  borderColor: 'var(--line)',
-                }}
-                className="font-mono text-[11px] px-3 py-2.5 rounded-xl border text-center text-[var(--ink)] font-medium"
-              >
-                {tag}
-              </span>
-            ))}
+          <div className="space-y-4 pt-5 border-t border-[var(--line)]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              {[
+                'Media & Entertainment',
+                'Marketing & Business',
+                'Creative & Design',
+                'Video & Photo Production',
+                'Content Creation',
+                'Technology & AI',
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    backgroundColor: 'var(--bg-soft)',
+                    borderColor: 'var(--line)',
+                  }}
+                  className="font-mono text-[11px] px-3 py-2.5 rounded-xl border text-center text-[var(--ink)] font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Official Curriculum Vitae Action Bar (View CV & Download CV) */}
+            <div
+              style={{
+                backgroundColor: 'var(--bg-soft)',
+                borderColor: 'var(--line-strong)',
+              }}
+              className="p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            >
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent)] font-bold">
+                  Official Curriculum Vitae · PDF
+                </p>
+                <p className="font-display text-sm font-extrabold uppercase text-[var(--ink)]">
+                  Mostafa Mohamed Farhat (Elshorbagy)
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <a
+                  href={identity.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-pill-primary px-4 py-2 text-xs"
+                >
+                  <FileText size={14} />
+                  <span>View CV</span>
+                  <ArrowUpRight size={13} />
+                </a>
+                <a
+                  href={identity.cvUrl}
+                  download={identity.cvDownloadName}
+                  className="btn-pill-secondary px-4 py-2 text-xs"
+                >
+                  <Download size={14} className="text-[var(--accent)]" />
+                  <span>Download CV</span>
+                </a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

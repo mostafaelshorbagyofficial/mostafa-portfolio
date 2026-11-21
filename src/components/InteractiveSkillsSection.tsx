@@ -263,16 +263,8 @@ function Skill3DCard({
       />
 
       <div className="relative z-10 flex items-center gap-4">
-        {/* 3D-Inspired Floating Logo Pedestal */}
-        <motion.div
-          animate={{
-            y: [0, -3, 0],
-          }}
-          transition={{
-            duration: 3.4 + (index % 4) * 0.35,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
+        {/* 3D-Inspired Logo Pedestal — GPU-Accelerated Hover Elevation */}
+        <div
           style={{
             background: skill.logoUrl
               ? 'linear-gradient(145deg, #FFFFFF 0%, #F4F0EA 100%)'
@@ -282,7 +274,7 @@ function Skill3DCard({
               ? '0 10px 20px -5px rgba(0,0,0,0.38), inset 0 1px 1px #FFFFFF'
               : '0 10px 20px -5px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.12)',
           }}
-          className="w-15 h-15 rounded-2xl border flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
+          className="w-15 h-15 rounded-2xl border flex items-center justify-center shrink-0 group-hover:-translate-y-1 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
         >
           {skill.logoUrl ? (
             <img
@@ -294,7 +286,7 @@ function Skill3DCard({
           ) : (
             <ConsistentSkillIcon iconKey={skill.iconKey} color={brandColor} />
           )}
-        </motion.div>
+        </div>
 
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2">

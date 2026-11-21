@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, FileText, Download } from 'lucide-react';
 import { identity, socialProfiles } from '../data/portfolio';
 import { OfficialSocialIcon } from './Navigation';
 import SectionBackground from './SectionBackground';
@@ -32,13 +32,22 @@ export default function Footer() {
               <ArrowUpRight size={15} />
             </a>
             <a
-              href={identity.linkedin}
+              href={identity.cvUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-pill-secondary px-6 py-3 text-xs sm:text-sm"
+              className="btn-pill-secondary px-5 py-3 text-xs sm:text-sm"
             >
-              <span>LinkedIn Profile</span>
-              <ArrowUpRight size={15} />
+              <FileText size={15} className="text-[var(--accent)]" />
+              <span>View CV</span>
+              <ArrowUpRight size={14} />
+            </a>
+            <a
+              href={identity.cvUrl}
+              download={identity.cvDownloadName}
+              className="btn-pill-secondary px-5 py-3 text-xs sm:text-sm"
+            >
+              <Download size={15} className="text-[var(--accent)]" />
+              <span>Download CV</span>
             </a>
           </div>
         </div>

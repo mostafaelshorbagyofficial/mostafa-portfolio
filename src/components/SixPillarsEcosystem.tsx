@@ -235,7 +235,17 @@ export default function SixPillarsEcosystem({ onSelectPillarWork }: SixPillarsEc
 
     let width = canvas.parentElement?.clientWidth || 1100;
     let height = canvas.parentElement?.clientHeight || 560;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isMobileCanvas = width < 768;
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobileCanvas ? 1.25 : 2);
+    let isCanvasVisible = true;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isCanvasVisible = entry.isIntersecting;
+      },
+      { threshold: 0.02 }
+    );
+    observer.observe(canvas);
 
     const resize = () => {
       if (!canvas.parentElement) return;
@@ -248,10 +258,10 @@ export default function SixPillarsEcosystem({ onSelectPillarWork }: SixPillarsEc
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
     // 1. Chemistry Lab Background Starfield
-    const starCount = width < 640 ? 60 : 120;
+    const starCount = width < 640 ? 38 : 115;
     const bgStars = Array.from({ length: starCount }, () => ({
       x: (Math.random() - 0.5) * width * 1.45,
       y: (Math.random() - 0.5) * height * 1.45,
@@ -318,6 +328,10 @@ export default function SixPillarsEcosystem({ onSelectPillarWork }: SixPillarsEc
     let time = 0;
 
     const render = () => {
+      if (!isCanvasVisible) {
+        rafId = requestAnimationFrame(render);
+        return;
+      }
       if (isPlaying) {
         time += 0.01;
       }
@@ -598,7 +612,7 @@ export default function SixPillarsEcosystem({ onSelectPillarWork }: SixPillarsEc
         ctx.fillText(h.pillar.number, h.proj.x, h.proj.y + 0.5);
 
         // Discipline Title Pill below the 3D Node
-        const titleText = h.pillar.title;
+        const titleText = width < 640 ? h.pillar.shortTitle.toUpperCase() : h.pillar.title;
         ctx.font = `700 ${Math.max(9.5, Math.round(10.5 * h.proj.scale))}px "Sora", sans-serif`;
         const textWidth = ctx.measureText(titleText).width;
         const pillW = textWidth + 16;
@@ -627,6 +641,7 @@ export default function SixPillarsEcosystem({ onSelectPillarWork }: SixPillarsEc
     rafId = requestAnimationFrame(render);
     return () => {
       window.removeEventListener('resize', resize);
+      observer.disconnect();
       cancelAnimationFrame(rafId);
     };
   }, [selectedPillarId, hoveredPillarId, isPlaying]);

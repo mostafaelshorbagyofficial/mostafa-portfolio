@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowDown } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, FileText, Download } from 'lucide-react';
 import { identity } from '../data/portfolio';
 import SectionBackground from './SectionBackground';
 
@@ -98,14 +98,30 @@ export default function HeroSection() {
               {identity.philosophy}
             </p>
 
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a href="#work" className="btn-pill-primary px-6 py-3 text-xs sm:text-sm">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a href="#work" className="btn-pill-primary px-5 sm:px-6 py-3 text-xs sm:text-sm">
                 <span>Explore Selected Work</span>
                 <ArrowDown size={15} />
               </a>
-              <a href="#contact" className="btn-pill-secondary px-6 py-3 text-xs sm:text-sm">
-                <span>Start a Project</span>
-                <ArrowUpRight size={15} />
+              <a
+                href={identity.cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View CV in a new browser tab"
+                className="btn-pill-secondary px-5 py-3 text-xs sm:text-sm"
+              >
+                <FileText size={15} className="text-[var(--accent)]" />
+                <span>View CV</span>
+                <ArrowUpRight size={14} />
+              </a>
+              <a
+                href={identity.cvUrl}
+                download={identity.cvDownloadName}
+                aria-label="Download CV PDF file"
+                className="btn-pill-secondary px-5 py-3 text-xs sm:text-sm"
+              >
+                <Download size={15} className="text-[var(--accent)]" />
+                <span>Download CV</span>
               </a>
             </div>
           </motion.div>

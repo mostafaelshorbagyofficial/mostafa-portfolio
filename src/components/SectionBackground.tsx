@@ -38,7 +38,14 @@ export default function SectionBackground({
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const dustCount = variant === 'transition' ? 18 : 38;
+    const isMobileDevice =
+      typeof window !== 'undefined' &&
+      (window.innerWidth < 768 ||
+        window.matchMedia('(pointer: coarse)').matches);
+
+    const staticMode = prefersReduced || isMobileDevice;
+
+    const dustCount = isMobileDevice ? 14 : variant === 'transition' ? 18 : 38;
     const dust = Array.from({ length: dustCount }, (_, i) => ({
       x: Math.random(),
       y: Math.random(),
@@ -52,12 +59,17 @@ export default function SectionBackground({
     const resize = () => {
       const parent = canvas.parentElement;
       if (!parent) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+      const dpr = isMobileDevice
+        ? 1
+        : Math.min(window.devicePixelRatio || 1, 1.75);
       const w = parent.clientWidth;
       const h = parent.clientHeight;
       canvas.width = Math.max(1, Math.floor(w * dpr));
       canvas.height = Math.max(1, Math.floor(h * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (staticMode) {
+        renderFrame();
+      }
     };
 
     resize();
@@ -312,20 +324,20 @@ export default function SectionBackground({
 
     const tick = () => {
       if (isVisible) {
-        if (!prefersReduced) {
+        if (!staticMode) {
           t += 0.014;
           mouseX += (targetX - mouseX) * 0.07;
           mouseY += (targetY - mouseY) * 0.07;
         }
         renderFrame();
       }
-      if (!prefersReduced) {
+      if (!staticMode) {
         rafId = window.requestAnimationFrame(tick);
       }
     };
 
     renderFrame();
-    if (!prefersReduced) {
+    if (!staticMode) {
       rafId = window.requestAnimationFrame(tick);
     }
 

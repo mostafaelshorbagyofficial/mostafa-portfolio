@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, ArrowUpRight, ArrowUp } from 'lucide-react';
-import { socialProfiles, type SocialProfile } from '../data/portfolio';
+import { Menu, X, Sun, Moon, ArrowUpRight, ArrowUp, FileText, Download } from 'lucide-react';
+import { identity, socialProfiles, type SocialProfile } from '../data/portfolio';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -229,6 +229,18 @@ export default function Navigation() {
             </button>
 
             <a
+              href={identity.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View CV in a new tab"
+              title="View Official CV"
+              className="hidden md:inline-flex btn-pill-secondary px-3.5 py-2 text-xs shrink-0"
+            >
+              <FileText size={13} className="text-[var(--accent)]" />
+              <span>CV</span>
+            </a>
+
+            <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
@@ -281,6 +293,30 @@ export default function Navigation() {
                 {link.label}
               </motion.button>
             ))}
+
+            {/* Mobile CV Actions (View CV & Download CV) */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <a
+                href={identity.cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="btn-pill-primary px-5 py-2.5 text-xs"
+              >
+                <FileText size={14} />
+                <span>View CV</span>
+                <ArrowUpRight size={13} />
+              </a>
+              <a
+                href={identity.cvUrl}
+                download={identity.cvDownloadName}
+                onClick={() => setMobileOpen(false)}
+                className="btn-pill-secondary px-5 py-2.5 text-xs"
+              >
+                <Download size={14} className="text-[var(--accent)]" />
+                <span>Download CV</span>
+              </a>
+            </div>
 
             {/* Mobile Verified Social Icons Row */}
             <div className="flex items-center gap-3 pt-5 border-t border-[var(--line)]">

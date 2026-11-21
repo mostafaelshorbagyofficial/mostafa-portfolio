@@ -152,6 +152,8 @@ export const identity = {
   ],
   location: 'Cairo, Egypt',
   email: 'mostafaelshorbagyofficial@gmail.com',
+  cvUrl: '/Mostafa_Elshorbagy_CV.pdf',
+  cvDownloadName: 'Mostafa_Mohamed_Farhat_Elshorbagy_CV.pdf',
   linkedin: 'https://linkedin.com/in/mostafa-elshorbagy-077b52390',
   github: 'https://github.com/mostafaelshorbagyofficial',
   instagram: 'https://www.instagram.com/__m5__sta__fa__/',
@@ -789,7 +791,7 @@ export const organizations: OrganizationExperience[] = [
     id: 'promedia',
     number: '01',
     organization: 'ProMedia',
-    role: 'Management · Account Coordination · Creative & Project Execution',
+    role: 'Project Manager | Acting Chief Technology Officer (CTO) · Creative & Digital Execution',
     status: 'Active',
     period: '2024 – Present',
     summary:

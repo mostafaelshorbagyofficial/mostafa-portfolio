@@ -45,6 +45,12 @@ html[data-theme="light"] {
   mix-blend-mode: overlay;
 }
 
+@media (max-width: 767px) {
+  .cinema-grain-overlay {
+    display: none;
+  }
+}
+
 @theme {
   --font-display: 'Sora', 'Manrope', system-ui, sans-serif;
   --font-serif: 'Sora', 'Manrope', system-ui, sans-serif;
